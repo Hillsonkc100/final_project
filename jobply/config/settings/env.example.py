@@ -13,3 +13,11 @@ MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 DATABASES = {}
+
+# Looking to send emails in production? Check out our Email API/SMTP product!
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = ''
+
+FROM_EMAIL = ""

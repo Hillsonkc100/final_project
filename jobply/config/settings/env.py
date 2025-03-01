@@ -18,3 +18,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Test email credential mailtrap
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '4ce08afa4b9133'
+EMAIL_HOST_PASSWORD = 'f272f01a369232'
+EMAIL_PORT = '2525'
+
+FROM_EMAIL = "jobply<noreply@jobply.com>"

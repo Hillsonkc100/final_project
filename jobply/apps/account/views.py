@@ -4,7 +4,7 @@ from django.views.generic import CreateView, FormView
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserRegisterForm, UserLoginForm
-
+from .utils import send_email_activation
 # Create your views here.
 
 class UserRegisterView(CreateView):
@@ -18,6 +18,7 @@ def form_valid(self, form):
     user = form.save()
     user.set_password(password1)
     user.save()
+    send_email_activation(user, self.request)
     messages.success(self.request,"User Created Successfully!")
     return redirect("home_page")
 
@@ -39,3 +40,8 @@ class UserLoginView(FormView):
             return redirect("home_page")
         messages.error(self.request, "Invalid credentials!")
         return redirect("user_login")
+
+    def user_logout(request):
+        logout(request)
+        messages.success(request, "User logged out !")
+        return redirect("home_page")
